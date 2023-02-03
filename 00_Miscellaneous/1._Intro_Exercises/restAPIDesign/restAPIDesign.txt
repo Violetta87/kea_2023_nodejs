@@ -1,0 +1,7 @@
+HTTP Method	Endpoint	Description
+GET	        /songs	    fetch all songs
+GET	        /songs/<id>	fetch a song by id
+POST	    /songs	    creates a song
+PUT	        /songs/<id>	Updates an exsting song by id
+PATCH	    /songs/<id>	Updates an exsting song by id
+DELETE	    /songs/<id>	Delete a song by id.
