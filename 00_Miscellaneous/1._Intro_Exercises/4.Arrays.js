@@ -91,7 +91,7 @@ for(let number of numbers){
 }
 console.log(discardedNumbers);
 
-console.log(discardedNumbers);
+
 
 
 // --------------------------------------
