@@ -1,0 +1,12 @@
+anatomy of an udvikler
+
+protocol: 
+http, https
+| localhost (domain)| endpoint | path variable | query string 
+- required : kickdinosaur/:id
+- optional: size=1200
+
+- to ways of sending a get request - you cannot send a body with get. 
+
+
+http://localhost/kickdinosaur/:id?size=1200

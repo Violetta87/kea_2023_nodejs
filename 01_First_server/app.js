@@ -6,7 +6,10 @@ const express = require("express");
 
 //man kan skrive det i en linje
 
+
 const app = require("express")();
+//hvis man gerne vil parse body - den skal forvente at det vi sender er json. 
+app.use(express.json());
 
 //for at lave en server ; 
 //8080 : tomcat server - http port indikere at vi udvikler- 
@@ -40,7 +43,23 @@ app.get("/about", (req, res) => {
     <h3>This is my about my page</h3>
     `)
 })
-console.log("dfgdfgdfg")
+
+app.get("/bat", (req, res) => {
+    console.log(req.query)
+    res.send({ message : `bat is ${req.query.adjective}`});
+
+});
+
+app.get("/bottle/:bottleSize", (req, res) => {
+    console.log(req.params)
+    res.send({ message : `bat is ${req.params.bottleSize}`});
+
+});
+//man tester ved postman(rest client) - virker ikke fordi - 
+app.post("/package", (req, res) => {
+    console.log(req.body)
+    res.send({message: req.body});
+})
 
 app.listen(8080)
 
