@@ -59,6 +59,37 @@ app.get("/bottle/:bottleSize", (req, res) => {
 app.post("/package", (req, res) => {
     console.log(req.body)
     res.send({message: req.body});
+});
+
+//different ways to send time
+console.log(new Date());
+console.log(Date())//
+console.log(Date.now())//unix time
+
+/**Time */
+//zulo time - 
+app.get("/time/time", (req,res) => {
+    res.send({
+        timeUTC: new Date(),
+        timeLocal: Date(),
+        unixTimeStamp: Date.now()
+
+    });
+});
+
+console.log(new Date().toLocaleDateString)
+
+//Man creater array en gang. dvs. når serveren bliver startet
+const days = [, "Søndag","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+const months = ["January", "feb", "marts", "april", "maj", "juni", "juli", "august", "sep", "okt", "november", "dec"]
+
+app.get("/time/day", (req,res) => {
+    //new Date().toLocaleDateString("da-dk"), { weekday: "long" }
+    res.send({ data: days[new Date().getDay()]})
+})
+
+app.get("/time/month", (req,res) => {
+    res.send({ data: months[new Date().getMonth()]})
 })
 
 app.listen(8080)
