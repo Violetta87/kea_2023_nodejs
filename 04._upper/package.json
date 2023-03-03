@@ -1,0 +1,32 @@
+{
+  "name": "upper",
+  "version": "0.0.1",
+  "description": "Motivation app with jokes qoutes and daily commands",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Violetta87/kea_2023_nodejs.git"
+  },
+  "keywords": [
+    "motivation",
+    "jokes",
+    "daily",
+    "commands",
+    "upper",
+    "up",
+    "happy"
+  ],
+  "author": "beautifula",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Violetta87/kea_2023_nodejs/issues"
+  },
+  "homepage": "https://github.com/Violetta87/kea_2023_nodejs#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
