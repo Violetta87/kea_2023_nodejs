@@ -1,8 +1,15 @@
-const guards = [
+export const guards = [
     "hanks", "thomas", "cepus"
 ]
 
-function addGuards(){
+export function addGuards(guard){
     guards.push(guard);
-    return guard;
+    return guards;
 }
+
+/*
+export default {
+    guards,
+    addGuards
+}
+*/
