@@ -1,0 +1,7 @@
+{ "tanks":[
+    { "name": "pink tank", "nationality": "Germany"},
+    { "name": "tisse tank", "nationality": "Denmark", "version": "M1"},
+    { "name": "yellow tank", "nationality": "USA", "year": 2010},
+    { "name": "prut tank", "nationality": "France", "year": 1946}
+]
+}

@@ -3,14 +3,12 @@ const app = express();
 
 //vi sætter public som vores static folder - klienten må gerne tage filer. 
 //klient skal aldrig få adgang til serverside. 
+//klient kan ikke røre andet end public folder. 
 app.use(express.static("public"));
 
-const tanks = [
-    { name: "pink tank", nationality: "Germany"},
-    { name: "tisse tank", nationality: "Denmark", version: "M1"},
-    { name: "yellow tank", nationality: "USA", year: 2010},
-    { name: "prut tank", nationality: "France", year: 1946},
-]
+const { getTanks, addTanks } = require("./util/tanks.js");
+//console.log(tanksUtil.getTanks);
+
 
 let visitorsCount = 0;
 
@@ -29,6 +27,10 @@ app.get("/tanks", (req, res) =>{
 
 app.get("/visitors", (req,res) => {
     res.sendFile(__dirname + "/public/visitors/visitors.html")
+})
+
+app.get("/museumGuards", (req,res) => {
+    res.sendFile(__dirname + "/public/museumGuards/museumGuards.html")    
 })
 
 
