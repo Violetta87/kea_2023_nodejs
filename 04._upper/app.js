@@ -7,6 +7,7 @@ const app = express();
 import path from "path"
 
 console.log(path.resolve("public/pages/frontpage/frontpage.html"))
+app.use(express.static('public'));
 
 //import jokes from "./util/jokes"
 
@@ -18,6 +19,11 @@ app.get("/", (req,res) => {
 app.get("/quest", (req, res) => {
     res.sendFile(path.resolve("public/pages/IRLQuests/IRLQuests.html"))
     
+})
+
+//create a joke page and serve it. 
+app.get("/jokes", (req,res) => {
+    res.sendFile(path.resolve("public/pages/jokes/jokes.html"))
 })
 
 

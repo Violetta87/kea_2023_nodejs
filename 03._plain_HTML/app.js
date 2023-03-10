@@ -39,8 +39,7 @@ app.get("/museumGuards", (req,res) => {
 
 //URL indikerer at vi sender data JSON, evt. version sættes på -
 app.get("/api/tanks", (req,res) => {
-    console.log(tanks)
-    res.send({data: tanks})
+    res.send({data: getTanks()})
 })
 
 app.get("/api/visitors", (req, res) => {
@@ -49,8 +48,20 @@ app.get("/api/visitors", (req, res) => {
 
 //prefix notation
 app.put("/api/visitors", (req, res) => {
-    res.send({ data: ++visitorsCount})
+    res.send({ data: ++visitorsCount});
 })
+
+//klient side direction
+//you can send data in two ways - query string or path variable. 
+app.get("/api/guards", (req,res) => {
+    if (req.query.passport === 'theskyisblue') {
+        return res.redirect("/api/tanks");
+        //we are trying to send headers after the are send to klient. 
+        //which means the we have to return statement, 
+    }
+    res.send({message: "You are not allowed to see the tanks. Give us the password"});
+})
+
 
 
 
