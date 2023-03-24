@@ -27,6 +27,8 @@
   },
   "homepage": "https://github.com/Violetta87/kea_2023_nodejs#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "escape": "^0.0.1",
+    "express": "^4.18.2",
+    "sentiment": "^5.0.2"
   }
 }

@@ -1,5 +1,6 @@
-//task fetch 
-const url = 'https://www.boredapi.com/api'
+
+/**
+ * const url = 'https://www.boredapi.com/api'
 
 //practice this fetch method. 
 //hold things in the scope - hvis det ligger i scopet, eksisterer det kun i scopet
@@ -14,3 +15,26 @@ fetch(url).then(response => response.json()).then(result => {
     data.innerText = result.message;
 
 })
+
+ * 
+ * 
+ * 
+ */
+//task fetch 
+
+function fetchQuest(activityQueryString=""){
+    fetch('https://www.boredapi.com/api/activity'+activityQueryString)
+    .then(response => response.json())
+    .then(result => {
+        document.getElementById("quest").innerText = result.activity;
+
+    });
+}
+fetchQuest();
+
+function getNewQuest (){
+    const dropdown = document.getElementById("activity-dropdown");
+    fetchQuest(`?type=${dropdown.value}`);
+}
+
+document.getElementById("fetch-new-quest").addEventListener('click', getNewQuest)

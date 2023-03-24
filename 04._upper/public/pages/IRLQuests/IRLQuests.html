@@ -1,22 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/main.css">
-    <title>IRL Quest</title>
-</head>
-<body>
-
-    <h1>IRL QUest</h1>
-
+<div>
     <h2>Your next quest is...</h2>
     <h3 id="quest"></h3>
-    
+</div>
+<div>
+    <label for="activities">Choose a Activities:</label>
+
+<select name="activities" id="activity-dropdown">
+  <option value="education">education</option>
+  <option value="recreational">recreational</option>
+  <option value="social">social</option>
+  <option value="diy">diy</option>
+  <option value="charity">charity</option>
+  <option value="cooking">cooking</option>
+  <option value="relaxation">Relaxation</option>
+  <option value="music">Music</option>
+  <option value="busyWork">Busy Work</option>
+</select>
+
+<button id="fetch-new-quest">Fetch new quest</button>
+
+</div>
+
+<h2>Your next quest is too...</h2>
+<h3 id="quest"></h3>
 
 
-    <script src="/pages/IRLQuests/IRLQuest.js"></script>
-    
-</body>
-</html>
+<!--task make a dropdown with the following activities , education, recreational, social, diy, charity, cooking, relaxation, music, busy work
+ create a button that will call function getNewQuest-->
+
+<script src="\pages\IRLQuests\IRLQuest.js"></script>
+       

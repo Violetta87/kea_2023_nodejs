@@ -61,6 +61,10 @@ app.get("/api/guards", (req,res) => {
     }
     res.send({message: "You are not allowed to see the tanks. Give us the password"});
 })
+//proxy server= 
+app.get("/proxy", (req,res) => {
+    fetch('http://www.google.com').then(response => response.text()).then(result => res.send({result}))
+});
 
 
 
@@ -68,7 +72,7 @@ app.get("/api/guards", (req,res) => {
 //caps - fordi den er const og skal ikke ændres
 //listen function tager parametre error, og derved kan vi håndtere errors.
 //error = datatypen: undefined - 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, (error) =>{
     if(error){
         console.log(error)
