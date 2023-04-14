@@ -45,7 +45,6 @@ app.post("/birds", (req,res) => {
 app.delete("/birds/:id", (req, res) => {
     const id = req.params.id
     const foundIndex = birds.findIndex(bird => bird.id === Number(req.params.id));
-    console.log(foundIndex)
     if(foundIndex === -1){
         res.status(404).send({data : foundIndex, message: `No birds found with id: ${req.params.id} `})
     }else{
@@ -56,13 +55,13 @@ app.delete("/birds/:id", (req, res) => {
 
 app.patch("/birds/:id", (req,res) => {
     const id = req.params.id
-    const foundIndex = birds.findIndex((bird) => bird.id === Number(req.params.id))
-    res.send({ data: foundBird});
-    if(foundBird === -1){
-        res.status(404).send({message: `No bird found by id : ${foundBird} `})
+    const foundIndex = birds.findIndex(bird => bird.id === Number(id))
+    if(foundIndex === -1){
+        res.status(404).send({message: `No bird found by id : ${id} `})
     }else{
         //we overwrite the the req.body with the object found from req.params.id
-        const birdToBeUpdated =  birds[foundIndex] = { ...foundBird, ...req.body , id: foundBird.id};
+        const foundBird = birds[foundIndex];
+        const birdToBeUpdated = { ...foundBird, ...req.body , id: foundBird.id};
         birds[foundIndex] = birdToBeUpdated
         res.send({ data: birdToBeUpdated})
     }

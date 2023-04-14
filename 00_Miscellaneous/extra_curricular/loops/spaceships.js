@@ -12,6 +12,7 @@ spaceships.forEach((spaceship, index, array) =>{
     console.log(spaceship);
 });
 
+
 //task make spaceships make the owner China
 
 const spaceshipWithOwners = spaceships.map((spaceship) =>{

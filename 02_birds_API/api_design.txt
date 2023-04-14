@@ -1,2 +1,5 @@
 GET /birds
 GET /birds/<id>
+POST /birds
+UPDATE /birds/<id>
+Delete /birds/<id>
