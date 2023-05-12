@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Craze</title>
+</head>
+<body>
+    <h1>Pick a color</h1>
+    <input type="color" id="color-picker">
+    <button onClick="sendColor()">Send the color</button>
+
+    <script src="/socket.io/socket.io.js">
+    </script>
+
+    <script>
+        //kort sagt for "http://127.0.:8080" -er på samme origin, derfor skal man ikke specificere. 
+        const socket = io();
+
+        //hvis vi definere dette inde i function, bliver det kaldt flere gange. transversere dom 1 gang.
+        const colorPicker = document.getElementById("color-picker");
+        
+        function sendColor(){
+            //understående: sender til alle broadcasts. 
+            //io.emit("a color was choosen", data)
+            console.log(colorPicker.value)
+            //emit kun til den socket - 
+            socket.emit("client choose a color", {data: colorPicker.value});
+            //sender til alle andre sockets undtagen den socket den er på- 
+            socket.broadcast.emit("a color was choosen");
+        }
+
+        socket.on("a color was choosen", (data) => {
+            document.body.style.backgroundColor = data.data
+        })
+
+    </script>
+    
+</body>
+</html>
